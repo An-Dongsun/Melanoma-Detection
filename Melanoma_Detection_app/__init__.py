@@ -21,11 +21,10 @@ def index():
 @app.route('/predict', methods=['POST'])
 def make_prediction():
     if request.method == 'POST':
-   
         # 업로드 파일 처리 분기
         file = request.files['image']
         if not file: return render_template('index.html', label="No Files")
-   
+        
         img_array = keras.preprocessing.image.img_to_array(file)
         img_array = tf.expand_dims(img_array, 0)  # Create batch axis
 
