@@ -28,7 +28,7 @@ def make_prediction():
         img_array = keras.preprocessing.image.img_to_array(file)
         img_array = tf.expand_dims(img_array, 0)  # Create batch axis
 
-        model = load_model('model/EfficientNet_V2B1_model.h5')
+        model = load_model('/Users/avalanche/Section6/CP1/Melanoma-Detection/Melanoma_Detection_app/model/EfficientNet_V2B1_model5.h5')
 
         predictions = model.predict(img_array)
         score = predictions[0]
@@ -44,5 +44,5 @@ def make_prediction():
    
 # 미리 학습시켜서 만들어둔 모델 로드
 if __name__ == '__main__':
-    model = load_model('model/EfficientNet_V2B1_model.h5')
+    model = load_model('/Users/avalanche/Section6/CP1/Melanoma-Detection/Melanoma_Detection_app/model/EfficientNet_V2B1_model5.h5')
     app.run(host='0.0.0.0', port=8000, debug=True)
